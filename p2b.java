@@ -60,8 +60,8 @@ public class p2b{
 	}
 	
 	public static String toCipher(String text){
-		int[] c1 = getPosition(text.charAt(0);
-		int[] c2 = getPosition(text.charAt(1);
+		int[] c1 = getPosition(text.charAt(0));
+		int[] c2 = getPosition(text.charAt(1));
 		int x1, y1, x2, y2;
 		
 		x1 = c1[0];
