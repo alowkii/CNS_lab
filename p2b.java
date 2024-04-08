@@ -48,7 +48,7 @@ public class p2b{
 		
 		for(int i=0; i<5; i++){
 			for(int j=0; j<5; j++){
-				if(table[i][j] = c){
+				if(table[i][j] == c){
 					position[0] = i;
 					position[1] = j;
 					return position;
@@ -64,10 +64,10 @@ public class p2b{
 		int[] c2 = getPosition(text.charAt(1);
 		int x1, y1, x2, y2;
 		
-		x1 = c1[0]
-		y1 = c1[1]
-		x2 = c2[0]
-		y2 = c2[1]
+		x1 = c1[0];
+		y1 = c1[1];
+		x2 = c2[0];
+		y2 = c2[1];
 		
 		if(x1 == x2 && y1 == y2)
 			return text;
@@ -85,7 +85,7 @@ public class p2b{
 		}
 		
 
-		return table[x1][y2] + table[x2][y1]
+		return table[x1][y2] + table[x2][y1];
 	}
 	
 	public static void encrypt(String text){
@@ -95,6 +95,7 @@ public class p2b{
 				substr = text.substring(i,i+2);
 				ctext+= toCipher(substr);
 		}
+		return ctext;
 	}	
 	
 	public static void main(String[] args){
@@ -107,7 +108,7 @@ public class p2b{
 		input.nextLine();
 		System.out.print("Enter the plaintext:");
 		String ptext = input.nextLine();
-		encrypt(ptext);
+		System.out.print(encrypt(ptext));
 		
 		
 		
