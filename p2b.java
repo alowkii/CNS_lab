@@ -69,31 +69,43 @@ public class p2b{
 		x2 = c2[0];
 		y2 = c2[1];
 		
+		System.out.print(Character.toString(table[x1][y1]) + Character.toString(table[x2][y2]));
+		
 		if(x1 == x2 && y1 == y2)
 			return text;
 			
 		if(x1 == x2){
 			y1=(y1+1)%5;
 			y2=(y2+1)%5;
-			return table[x1][y1] + table[x1][y1];
+			return Character.toString(table[x1][y1]) + Character.toString(table[x2][y2]);
 		}
 		
 		if(y1 == y2){
 			x1=(x1+1)%5;
 			x2=(x2+1)%5;
-			return table[x1][y1] + table[x1][y1];
+			return Character.toString(table[x1][y1]) + Character.toString(table[x2][y2]);
 		}
 		
 
-		return table[x1][y2] + table[x2][y1];
+		return Character.toString(table[x1][y2]) + Character.toString(table[x2][y1]);
 	}
 	
-	public static void encrypt(String text){
+	public static String encrypt(String text){
+		if(text.length()%2 !=0){
+			text+='x';
+		}
 		String ctext = "";
 		String substr;
 		for(int i=0; i<text.length(); i+=2){
-				substr = text.substring(i,i+2);
-				ctext+= toCipher(substr);
+			substr = text.substring(i,i+2);
+			if(substr.charAt(0)==substr.charAt(1) && substr.charAt(0)!='x'){
+				substr=substr.charAt(0)+"x";
+				i--;
+			}else if(substr.charAt(0)==substr.charAt(1) && substr.charAt(0)=='x'){
+				substr=substr.charAt(0)+"y";
+				i--;
+			}
+			ctext+= toCipher(substr);
 		}
 		return ctext;
 	}	
@@ -108,10 +120,9 @@ public class p2b{
 		input.nextLine();
 		System.out.print("Enter the plaintext:");
 		String ptext = input.nextLine();
-		System.out.print(encrypt(ptext));
+		System.out.print("\nEncrypted Text:\n"+encrypt(ptext)+"\n");
 		
-		
-		
+		System.out.print("\nTable:\n");
 		
 		for(int i=0; i<5; i++){
 			for(int j=0;j<5;j++){
