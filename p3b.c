@@ -1,6 +1,7 @@
 //Rail Fence Cipher using Row Column Technique
 
 #include<stdio.h>
+#include<stdlib.h>
 #include<ctype.h>
 #include<string.h>
 
@@ -32,24 +33,27 @@ int main(){
 	ptext_len+=n;
 	ptext[ptext_len]='\0';
 	
-	int key_order[key_len];
-	for(int i=0; i<key_len; i++){
-		
-	}
+	int order_of_key[key_len];
+	for(int i=0; i<key_len; i++) {
+        for(int j=0; j<key_len; j++) {
+        	if((char)(i+1+'0')==key[j]){
+        		order_of_key[i]=j;
+        		break;
+        	}
+    	}
+    }
 	
-	
-	/*			
-	for(int i=0; i<key_len; i++){
-		printf("%c\t",key[i]);
-	}
-
-	printf("\n");
-	for(int i=0; i<ptext_len; i++){
-		printf("%c\t",ptext[i]);
-		if((i+1)%key_len==0){
-			printf("\n");
-		}
-	}
-	*/
-	
+	int pos=0;
+    for(int i=0; i<key_len; i++){
+    	int k=order_of_key[i];
+    	while(k<ptext_len){
+    		ctext[pos]=ptext[k];
+    		pos++;
+    		k+=key_len;
+    	}
+    }
+    
+    int ctext_len = strlen(ctext);
+    ctext[ctext_len-2] = '\0';
+	printf("%s",ctext);
 }
