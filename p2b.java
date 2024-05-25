@@ -101,7 +101,8 @@ public class p2b{
 			if(substr.charAt(0)==substr.charAt(1) && substr.charAt(0)!='x'){
 				substr=substr.charAt(0)+"x";
 				i--;
-			}else if(substr.charAt(0)==substr.charAt(1) && substr.charAt(0)=='x'){
+			}
+			if(substr.charAt(0)==substr.charAt(1) && substr.charAt(0)=='x'){
 				substr=substr.charAt(0)+"y";
 				i--;
 			}
