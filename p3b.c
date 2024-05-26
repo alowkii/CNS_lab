@@ -46,7 +46,6 @@ int main(){
     	}
     }
     
-    int ctext_len = strlen(ctext);
-    ctext[ctext_len] = '\0';
+    ctext[ptext_len] = '\0';
 	printf("%s",ctext);
 }
