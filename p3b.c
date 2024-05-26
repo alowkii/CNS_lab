@@ -1,8 +1,6 @@
 //Rail Fence Cipher using Row Column Technique
 
 #include<stdio.h>
-#include<stdlib.h>
-#include<ctype.h>
 #include<string.h>
 
 int main(){
@@ -10,12 +8,12 @@ int main(){
 	char ptext[size], ctext[size+9], key[9];
 	
 	printf("Enter the key :");
-	fgets(key, sizeof(key), stdin);
+	scanf("%s",&key);
 	printf("Enter the plain text :");
-	fgets(ptext, sizeof(ptext), stdin);
+	scanf("%s",&ptext);
 	
-	int ptext_len = strlen(ptext)-1;
-	int key_len = strlen(key)-1;
+	int ptext_len = strlen(ptext);
+	int key_len = strlen(key);
 	
 	//Padding
 	int n=ptext_len%key_len;
@@ -25,7 +23,6 @@ int main(){
 	}
 	ptext_len+=n;
 	ptext[ptext_len]='\0';
-	key[key_len] = '\0';
 	
 	//Finding the order of keys
 	int order_of_key[key_len];
