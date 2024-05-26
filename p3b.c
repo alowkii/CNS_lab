@@ -19,7 +19,7 @@ int main(){
 	
 	//Padding
 	int n=ptext_len%key_len;
-	n = key_len-n;
+	n = n>0?key_len-n:0;
 	for(int i=0; i<n; i++){
 		ptext[ptext_len+i] =('x'+i-'a')%26+'a';
 	}
